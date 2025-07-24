@@ -1,0 +1,22 @@
+
+# What each of the files are about:
+
+-> problem69: On Euler's Totient Function (also called the phi function):
+The number of numbers smaller than n and relative prime to it.
+Takes special interest in the ratio n/phi(n) are tries to find values
+that minimise it.
+
+-> relatively_prime: Uses Euler's method (I think) of finding relatively prime
+numbers to determine if two numbers are relatively prime.
+
+-> problem33: objective is to find fractions less than one (with
+two digits each in the numerator and denominator) that have this unique property
+of being equalling to the remaining fraction obtained after crossing out common numbers
+E.g., 49/98 = 4/8 (9 got crossed out)
+
+-> coin_sums: Coins of different denominations can be summed in different ways to produce
+a particular resulting value.
+Objective is to find the number of ways these numbers can be added to obtain a desired sum
+
+-> 
+
