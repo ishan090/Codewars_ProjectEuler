@@ -183,6 +183,30 @@ def alt2_n(n):
             yield x
         x += 2
 
+def gen_indefinite():
+    def when_index_change(index_val):
+        return index_val*index_val
+    primes_list = [2]
+    prime_index = 0
+    theshold = when_index_change(2)
+    yield 2
+    x = 3
+    while True:
+        # print("exploring num", x)
+        is_prime = True
+        if x > theshold:
+            prime_index += 1
+            theshold = when_index_change(primes_list[prime_index])
+        # prime_index = index_prime(root, primes_list)
+        for i in range(prime_index+1):
+            if x % primes_list[i] == 0:
+                is_prime = False
+                break
+        if is_prime:
+            primes_list.append(x)
+            yield x
+        x += 2
+
 def gen_primes_uptil(n):
     def when_index_change(index_val):
         return index_val*index_val
@@ -237,7 +261,7 @@ def list_primes_uptil(n):
 
 def gen_primes_from(x, n, primes):
     """
-    Generates primes from ater a number given the primes that come before it
+    Generates primes from after a number given the primes that come before it
     x: the number to generates primes from
     n: the number of primes to generate
     primes: the number of primes uptil x
@@ -298,7 +322,10 @@ def next_prime(n, primes_before):
 
 
 if __name__ == "__main__":
-    test_size = 10000
+
+    # FASTEST -> alt2_n
+
+    test_size = 1000000
     print("Speed test between two competing prime generator algorithms")
     print("New Alt method...")
     start = timer()
@@ -308,16 +335,16 @@ if __name__ == "__main__":
     end = timer()
     print("Time Taken:", end-start, "\n")
 
-    print("Timing the alternative method...")
-    start1 = timer()
-    primes2 = []
-    for i in alt_gen_n(test_size):
-        primes2.append(i)
-    end1 = timer()
-    print("Time Taken:", end1-start1, "\n")
-    print("Last prime:", primes2[-1])
+    # print("Timing the alternative method...")
+    # start1 = timer()
+    # primes2 = []
+    # for i in gen_n_primes(test_size):
+    #     primes2.append(i)
+    # end1 = timer()
+    # print("Time Taken:", end1-start1, "\n")
+    # print("Last prime:", primes2[-1])
 
-    print("Measuring validity of the results:", primes1 == primes2)
+    # print("Measuring validity of the results:", primes1 == primes2)
 
 
 

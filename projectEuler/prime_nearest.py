@@ -4,7 +4,7 @@
 def index_prime(n, primes_list, verbose = False):
     """
     Given a list of primes, finds the index of the prime number from
-    the primes list that equal to or greater than n using binary search
+    the primes list thats equal to or greater than n using binary search
     """
     # if n is out of bounds, return the last elment
     if n > primes_list[-1]:

@@ -59,7 +59,7 @@ if __name__ == "__main__":
         print("Time taken:", end-start, "\n")
         print("Checking validity:", "Valid" if factors1 == factors2 else "Invalid!")
         print(factors1)
-    to_check = [533]
+    to_check = [133]
     for p in to_check:
         result = prime_check(p)
         print(p, "is", "" if result[0] else f"not ({result[1]})", "a prime")
