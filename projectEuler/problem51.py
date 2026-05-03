@@ -49,7 +49,10 @@ def repeats(num, size=3):
 
 
 def bin_search(item, items):
-    """tries to find itme in items. returns bool"""
+    """tries to find itme in items. returns (bool, nearest index)
+    note: nearest index will always be greater than or equal to to the estimated location"""
+    if len(items) == 0:
+        return False, 0
     start = 0
     end = len(items)-1
     while start < end:
@@ -65,7 +68,7 @@ def bin_search(item, items):
     return False, start
 
 
-print(bin_search(80, [1, 2, 5, 7, 10, 45, 56, 75]))
+# print(bin_search(80, [1, 2, 5, 7, 10, 45, 56, 75]))
 def replace_indicies(num, indicies, digit):
     """replaces certain indicies with `digit`"""
     out = list(str(num))
@@ -117,5 +120,7 @@ def prime_family(family_size, repeat_size=3):
 
     print("OVER")
 
-print(prime_family(8, 3))
+
+if __name__ == "__main__":
+    print(prime_family(8, 3))
 

@@ -9,7 +9,7 @@ from prime_nearest import index_prime
 
 
 def prime_check(n):
-    if n == 1:
+    if n <= 1:
         return False, False
     if n == 2:
         return True, True
@@ -41,10 +41,10 @@ def alt_check(n):
 
 
 if __name__ == "__main__":
-    speed_check = False
+    speed_check = True
     if speed_check:
         print("Performing speed test of the two competing algorithms")
-        val = 10112269203786181
+        val = 1000000007
         print("Timing the recusive algorithm...")
         start = timer()
         factors1 = prime_check(val)
@@ -59,8 +59,16 @@ if __name__ == "__main__":
         print("Time taken:", end-start, "\n")
         print("Checking validity:", "Valid" if factors1 == factors2 else "Invalid!")
         print(factors1)
-    to_check = [133]
-    for p in to_check:
-        result = prime_check(p)
-        print(p, "is", "" if result[0] else f"not ({result[1]})", "a prime")
+    # to_check = [int(str(i)+str(17)) for i in [3, 7, 11]] + [int(str(17)+str(i)) for i in [3, 7, 11]]
+    to_check = []
+    p_s = [7, 433, 1471, 3613]
+    p_s = []
+    if p_s:
+        for i in p_s:
+            for j in p_s:
+                if i != j:
+                    to_check.append(int(str(i) + str(j)))
+        for p in to_check:
+            result = prime_check(p)
+            print(p, "is", "" if result[0] else f"not ({result[1]})", "a prime")
 
